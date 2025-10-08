@@ -1,0 +1,60 @@
+main.cpp
+#include "Refrigerator.h"
+#include "Elephant.h"
+int main() {
+	Refrigerator fridge;
+	Elephant elephant;
+	fridge.open Door();
+	fridge.put Elephant(elephant);
+	fridge.close Door();
+	return 0;
+}
+Elephant.h
+# pragma once
+class Elephant {
+public:
+	void enterFridge();
+};
+Elephant.cpp
+#include "Elephant.h"
+#include "iostream"
+void Elephant::enterFridge() {
+}
+Refrigerator.h
+#pragma once
+#include "string"
+class Refrigerator {
+private:
+	std::string state; // "OPEN" 或 "CLOSED"
+public:
+	Refrigerator();
+	void openDoor();
+	void putElephant(class Elephant& e);
+	void closeDoor();
+};
+Refrigerator.cpp
+#include "Refrigerator.h"
+#include "Elephant.h"
+#include "iostream"
+Refrigerator::Refrigerator() : state("CLOSED") {}
+void Refrigerator::openDoor() {
+	state = "OPEN";
+	std::cout << "① 冰箱门已打开" << std::endl;
+}
+void Refrigerator::putElephant(Elephant& e) {
+	if (state == "OPEN") {
+		e.enterFridge();
+		std::cout << "② 大象已放入冰箱" << std::endl;
+	}
+}
+void Refrigerator::closeDoor() {
+	state = "CLOSED";
+	std::cout << "③ 冰箱门已关闭" << std::endl;
+}
+示例代码
+#ifndef ELEPHANT_H  
+class Elephant {
+public:
+	void enterFridge();
+};
+#endif 
